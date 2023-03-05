@@ -89,9 +89,5 @@ displayDegree marks =
 main =
     Html.h1
         [ class "h1" ]
-        [ divide 30 10
-            |> multiply 10
-            |> add 5
-            |> String.fromFloat
-            |> Html.text
+        [ Html.text <| String.fromFloat <| add 5 <| multiply 10 <| divide 30 10
         ]
