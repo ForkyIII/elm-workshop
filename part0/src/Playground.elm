@@ -72,9 +72,8 @@ displayDegree marks =
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text
-            (getGPA 60
-                |> mapGPA
-                |> displayDegree
-            )
+        [ getGPA 60
+            |> mapGPA
+            |> displayDegree
+            |> Html.text
         ]
