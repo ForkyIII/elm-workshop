@@ -5,7 +5,7 @@ import Html.Attributes exposing (class)
 
 
 
---
+{--
 
 
 add a b =
@@ -20,7 +20,7 @@ divide e f =
     e / f
 --}
 
-
+{--
 getGPA : Float -> Float
 getGPA marks =
     if marks >= 90 then
@@ -84,10 +84,34 @@ mapGPA gpa =
 displayDegree : String -> String
 displayDegree marks =
     "Your GPA is " ++ marks
+--}
 
+weekday dayInNumber =
+    if dayInNumber == 0 then
+        "Sunday"
+
+    else if dayInNumber == 1 then
+        "Monday"
+
+    else if dayInNumber == 2 then
+        "Tuesday"
+
+    else if dayInNumber == 3 then
+        "Wednesday"
+
+    else if dayInNumber == 4 then
+        "Thursday"
+
+    else if dayInNumber == 5 then
+        "Friday"
+
+    else if dayInNumber == 6 then
+        "Saturday"
+
+    else
+        "Unknown day"
 
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text <| String.fromFloat <| add 5 <| multiply 10 <| divide 30 10
-        ]
+        [ Html.text <| weekday 0]
