@@ -4,6 +4,23 @@ import Html
 import Html.Attributes exposing (class)
 
 
+
+--
+
+
+add a b =
+    a + b
+
+
+multiply c d =
+    c * d
+
+
+divide e f =
+    e / f
+--}
+
+
 getGPA : Float -> Float
 getGPA marks =
     if marks >= 90 then
@@ -72,8 +89,9 @@ displayDegree marks =
 main =
     Html.h1
         [ class "h1" ]
-        [ getGPA 60
-            |> mapGPA
-            |> displayDegree
+        [ divide 30 10
+            |> multiply 10
+            |> add 5
+            |> String.fromFloat
             |> Html.text
         ]
