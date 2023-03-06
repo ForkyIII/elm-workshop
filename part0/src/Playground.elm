@@ -7,7 +7,7 @@ import Regex
 
 pattern : String
 pattern =
-    "\\d\\d:\\d\\d [ap]\\.m\\."
+    "quitter"
 
 
 maybeRegex : Maybe Regex.Regex
@@ -23,27 +23,21 @@ regex =
 apollo11 : String
 apollo11 =
     """ 
-   On July 16, 1969, the massive Saturn V rocket
-   lifted off from NASA's Kennedy Space Center at
-   09:32 a.m. EDT. Four days later, on July 20, Neil
-   Armstrong and Buzz Aldrin landed on the Moon.
-"""
+    I'm a great quitter. It's one of the few things 
+    I do well. I come from a long line of quitters. 
+    My father was a quitter, my grandfather was a 
+    quitter... I was raised to give up. 
+    """
 
 
-stringFromBool : Bool -> String
-stringFromBool bool =
-    if bool then
-        "true"
+stringFromList : List Int -> String
+stringFromList lista =
+    List.map (\int -> String.fromInt int) lista
+    |> String.join ","
 
-    else
-        "false"
-
-stringFromList : List String -> String
-stringFromList = 
-    String.join ", "
 
 main : Html.Html msg
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text <| stringFromList <| List.map (\time -> time.match) (Regex.find regex apollo11) ]
+        [ Html.text <| stringFromList <| List.map (\time -> time.number) (Regex.find regex apollo11) ]
