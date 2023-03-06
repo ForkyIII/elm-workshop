@@ -30,14 +30,8 @@ apollo11 =
     """
 
 
-stringFromList : List Int -> String
-stringFromList lista =
-    List.map (\int -> String.fromInt int) lista
-    |> String.join ","
-
-
 main : Html.Html msg
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text <| stringFromList <| List.map (\time -> time.number) (Regex.find regex apollo11) ]
+        [ Html.text <| Regex.replace regex (\_ -> "go-getter") apollo11 ]
