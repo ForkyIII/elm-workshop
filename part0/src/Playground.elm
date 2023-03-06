@@ -19,7 +19,6 @@ multiply c d =
 divide e f =
     e / f
 --}
-
 {--
 getGPA : Float -> Float
 getGPA marks =
@@ -86,19 +85,37 @@ displayDegree marks =
     "Your GPA is " ++ marks
 --}
 
+
+weekday : Int -> String
 weekday dayInNumber =
     case dayInNumber of
-        0 -> "Sunday"
-        1 -> "Monday"
-        2 -> "Tuesday"
-        3 -> "Wednesday"
-        4 -> "Thursday"
-        5 -> "Friday"
-        6 -> "Saturday"
-        _ -> "Invalid day"
+        0 ->
+            "Sunday"
+
+        1 ->
+            "Monday"
+
+        2 ->
+            "Tuesday"
+
+        3 ->
+            "Wednesday"
+
+        4 ->
+            "Thursday"
+
+        5 ->
+            "Friday"
+
+        6 ->
+            "Saturday"
+
+        _ ->
+            "Invalid day"
 
 
+main : Html.Html msg
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text <| weekday 0]
+        [ Html.text <| weekday 1 ]
