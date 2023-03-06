@@ -21,8 +21,7 @@ palindromeize word =
         |> String.toLower
 
 isntComma : Char -> Bool
-isntComma char =
-    char /= ','
+isntComma = \char -> char /= ','
 
 
 palindrome : String -> Bool
