@@ -38,9 +38,12 @@ stringFromBool bool =
     else
         "false"
 
+stringFromList : List String -> String
+stringFromList = 
+    String.join ", "
 
 main : Html.Html msg
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text <| stringFromBool (Regex.contains regex apollo11) ]
+        [ Html.text <| stringFromList <| List.map (\time -> time.match) (Regex.find regex apollo11) ]
