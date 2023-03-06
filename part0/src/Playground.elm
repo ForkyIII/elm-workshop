@@ -7,7 +7,7 @@ import Regex
 
 pattern : String
 pattern =
-    "quitter"
+    "\\d\\d:\\d\\d"
 
 
 maybeRegex : Maybe Regex.Regex
@@ -23,15 +23,17 @@ regex =
 apollo11 : String
 apollo11 =
     """ 
-    I'm a great quitter. It's one of the few things 
-    I do well. I come from a long line of quitters. 
-    My father was a quitter, my grandfather was a 
-    quitter... I was raised to give up. 
+    On July 16, 1969, the massive Saturn V rocket lifted
+off from NASA's Kennedy Space Center at 09:32 a.m. EDT. Four days later, on July 20 at
     """
+
+fromListToString : List String -> String
+fromListToString = 
+    String.join ""
 
 
 main : Html.Html msg
 main =
     Html.h1
         [ class "h1" ]
-        [ Html.text <| Regex.replace regex (\_ -> "go-getter") apollo11 ]
+        [ Html.text <| fromListToString <| Regex.split regex apollo11 ]
