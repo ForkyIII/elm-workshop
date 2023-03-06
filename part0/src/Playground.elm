@@ -17,11 +17,8 @@ palindromeize : String -> String
 palindromeize word =
     String.split " " word
         |> String.join ""
-        |> String.filter isntComma
+        |> String.filter (\char -> char /= ',')
         |> String.toLower
-
-isntComma : Char -> Bool
-isntComma = \char -> char /= ','
 
 
 palindrome : String -> Bool
