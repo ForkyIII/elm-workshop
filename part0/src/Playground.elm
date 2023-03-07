@@ -3,23 +3,16 @@ module Playground exposing (main)
 import Html
 -- import Html.Attributes exposing (class)
 
+guardians : List String
+guardians = [ "Star-lord", "Groot", "Gamora", "Drax", "Rocket" ]
 
-descending2 : comparable -> comparable -> Order
-descending2 a b =
-    case compare a b of
-        LT ->
-            GT
-
-        GT ->
-            LT
-
-        EQ ->
-            EQ
+-- List.foldl (\x a -> (String.length x) + a) 0 guardians
 
 
 main : Html.Html msg
 main =
-    [ 316, 320, 312, 370, 337, 318, 314 ]
-        |> List.sortWith descending2
+    guardians
+        |> List.map String.length
+        |> List.sum
         |> Debug.toString
         |> Html.text
